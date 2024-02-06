@@ -1,0 +1,9 @@
+1.Create a repo on get
+2.git init
+3.git branch -M main
+4. git add .
+5. git commit -m "meassage"
+6.git remote add origin https://github.com/nup26/Test.git
+7.git push origin main
+
+Q. difference between git and github -place where git is hosted
