@@ -1,0 +1,17 @@
+1. How to create create element- 
+it takes 3 arguments - tag,object - where we give attribute to tag like id, class , value (children)
+const heading=React.createElement("h1",{id:"heading"},"Hello world using react js");
+
+2. Steps to print hellow world in React 
+1> create react element
+2>create root - const root=ReactDOM.createRoot(document.getElementById("root"));
+3>render - root.render(heading); --> to take the JS object (react cretae elment) and create thr tag which browser understands and put it in root element
+
+3. Most costly operation on webpage/browser- DOM manipulation when Dom tree is changing.Like click , removing elemnts n ol
+
+4. React.createElement() ---> Js object
+
+5. Props --- Children +attributes
+
+6. ReactElement(object) ==> HTML (browser understands)
+
