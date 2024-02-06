@@ -7,3 +7,71 @@
 7.git push origin main
 
 Q. difference between git and github -place where git is hosted
+
+Not only react but other pacakage are also helping to make react fast 
+
+npm - there is no full form of npm 
+it manages the pacakages
+It is the standard reepo for all the pacakges . All the pacakages are hosted over here . Libraries utilites comes from npm .
+Npm manages it .
+
+Steps-  
+1. npm init     -(to add npm to our project)
+   pacakge name:
+   version:
+   desrptn:
+   entry point:
+   test commnd:jest
+   git repo:
+   keyword:
+   author:
+   license:
+   It is ok :yes
+ -------------------
+ after all this pacakge.json file is created in our project
+ 
+ pacakage.json - it is configuration for npm
+
+Bundler - it helps us to bundel our app together so that it can move to the production
+eg - webpack , bable , parcel
+
+2. npm install -D parcel -----(to install parcel in our app)
+
+-----------
+after this pacakage-lock json file is created , node modules is created and in pacakge.json dev dependency is added 
+
+-D = to add parcel as dev dependency
+
+types of dependency - 
+dev dependency - it is required in development phase 
+noram dependency- for production phase 
+
+"parcel": "^2.11.0" => 
+^ (caret) - it will intall the minor version . (mostly used) 
+~ (tilde) - it will install the major version .
+
+pacakage-lock.json - it keep a track of the extact version if all the dependency mentioned in pacakage.json file
+
+"integrity": "sha512-H/RI1/DmuOkL8RuG/EpNPvtzrbF+7jA/R56ydEEm+lqFbYktKB4COR7JXdHkZXRgbSJyimrFB8d0r9+SaRnj0Q==", -- >
+it maintain the code which is there on local and the code deployed on production .
+
+node_module - conatains all the dependencies . 
+all dependencies have its pacakage.json file . So in our project we don't have single pacakage.json fill .
+
+Q. Sholud we put node_modules on production or git ? NO == > put it is .gitingore file.
+
+.gitignore - contains those file which are not required to put on production or on git .
+
+We can regenerate node_module using pacakage.json and pacakage-lock.json file  -- that why no need to push on pro or in git
+
+npm install 
+
+
+Q. Sholud we put pacakage.json and pacakage-lock.json file on gitgit ? YES coz it mainatain all the dependencies for our project
+
+3. npx parcel index.html --- > buliding parcel  . Create dist and parcel cache folders
+
+4. npm install react - to install react 
+
+5. npm install react-dom or npm i react-dom  - to install react-dom
+ 
