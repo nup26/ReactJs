@@ -31,4 +31,58 @@ const jsxHeading = (<h1 className="head">
 Nameste React Js using JSX
 </h1>);
 
+6. React Compement -
+ a class based component - old way
+ b functional based component - new way - just a javascript function which returns jsx .
 
+7.//React functional component 
+
+const HeadingComponent = ()=>{
+
+    return <h1>React funactional component</h1>;
+};
+
+// Multiline React functional component 
+
+const HeadingComponent1 = ()=>( 
+<h1 className="heading">React funactional component</h1>
+);
+
+8. How to render function component - 
+root.render(<HeadingComponent />);
+
+9> how to render one component into other component - <component name /> or <comp name > </comp name> - it is called Component compostion 
+
+const Title = ()=>( 
+    <h1>Nupur Gupta</h1>
+    );
+
+const HeadingComponent1 = ()=>( 
+    <div id="container">
+   <Title />
+<h1 className="heading">React funactional component</h1>
+</div>
+);
+
+10. how to put react element into react component - {element name } 
+const HeadingComponent1 = ()=>( 
+    <div id="container">
+    {jsxHeading1}
+   <h2>{number}</h2>
+<h1 className="heading">React functional component</h1>
+</div>
+);
+
+11. How to put one react element into another react element - {element name}
+
+const jsxHeading = <h1 className="head">Nameste React Js using JSX (react element)</h1>;
+
+
+const jsxHeading1 =(
+   <h1 className="head">
+    {jsxHeading}
+    Nameste React Js using JSX Multiline (react element);
+    </h1>
+    );
+
+12. {} - any javascript code we can write in it 

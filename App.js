@@ -71,15 +71,44 @@ import ReactDOM from "react-dom/client";
 //JSX ---> Transpiled before it reaches to JS engine --> by parcel --> parcel give resposibility to a pacakage Babel 
 // JSX ---> Babel transpile it to React.createElement() ---> react element ---> JS object --> HTML element ( render browser understand)
 
-const jsxHeading = <h1 className="head">Nameste React Js using JSX</h1>;
+const jsxHeading = <h1 className="head">Nameste React Js using JSX (react element)</h1>;
 
 //MultiLine JSX 
-const jsxHeading1 =(<h1 className="head">
-    Nameste React Js using JSX Multiline
-    </h1>);
+const jsxHeading1 =(
+   <h1 className="head">
+    {jsxHeading}
+    Nameste React Js using JSX Multiline (react element);
+    </h1>
+    );
+
+//React functional component 
+
+const HeadingComponent = ()=>{
+
+    return <h1>React funactional component</h1>;
+};
+
+// Multiline React functional component 
+
+const Title= ()=>( 
+    <h1>Nupur Gupta react component</h1>
+    );
+
+const number =1000;
+
+const HeadingComponent1 = ()=>( 
+    <div id="container">
+    {jsxHeading1}
+    {Title()}
+    <Title></Title>
+   <Title> </Title>
+   <h2>{number}</h2>
+<h1 className="heading">React functional component</h1>
+</div>
+);
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading1);
+root.render(<HeadingComponent1/>);
 
 
 
