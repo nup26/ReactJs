@@ -53,14 +53,36 @@ import ReactDOM from "react-dom/client";
 
 
 
-const parent= React.createElement("div",{id:"parent"} ,
-              [React.createElement("div",{id:"child1"},
-              [React.createElement("h1",{},"I am H1 Tag"), React.createElement("h2",{},"I am H2 Tag") ]
-              )] ,
-              [React.createElement("div",{id:"child2"},
-              [React.createElement("h1",{},"I am H1 Tag"), React.createElement("h2",{},"I am H2 Tag") ]
-              )]
-);
+// const parent= React.createElement("div",{id:"parent"} ,
+//               [React.createElement("div",{id:"child1"},
+//               [React.createElement("h1",{},"I am H1 Tag"), React.createElement("h2",{},"I am H2 Tag") ]
+//               )] ,
+//               [React.createElement("div",{id:"child2"},
+//               [React.createElement("h1",{},"I am H1 Tag"), React.createElement("h2",{},"I am H2 Tag") ]
+//               )]
+// );
+
+// const root=ReactDOM.createRoot(document.getElementById("root"));
+// root.render(parent);
+
+
+// JSX --> its HTML like syntax . It is not html in javascript 
+// How to create h1 in JSX
+//JSX ---> Transpiled before it reaches to JS engine --> by parcel --> parcel give resposibility to a pacakage Babel 
+// JSX ---> Babel transpile it to React.createElement() ---> react element ---> JS object --> HTML element ( render browser understand)
+
+const jsxHeading = <h1 className="head">Nameste React Js using JSX</h1>;
+
+//MultiLine JSX 
+const jsxHeading1 =(<h1 className="head">
+    Nameste React Js using JSX Multiline
+    </h1>);
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(jsxHeading1);
+
+
+
+
+
+

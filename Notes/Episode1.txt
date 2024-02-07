@@ -9,7 +9,7 @@ const heading=React.createElement("h1",{id:"heading"},"Hello world using react j
 
 3. Most costly operation on webpage/browser- DOM manipulation when Dom tree is changing.Like click , removing elemnts n ol
 
-4. React.createElement() ---> Js object
+4. React.createElement() ---react element ---> Js object
 
 5. Props --- Children +attributes
 

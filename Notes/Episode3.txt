@@ -1,0 +1,34 @@
+1.npx parcel index.html    
+Create scripts in pacakage.json file to make above command shorter -
+"start":"parcel index.html" - for dev 
+"build":"parcel build index.html" - for production build 
+
+Now commands will be 
+     Dev                                                 production
+     npm run start                                       npm run build
+        or
+    npm satrt
+
+2.JSX --> its HTML like syntax . It is not html in javascript 
+3.How to create h1 in JSX
+
+const jsxHeading = <h1>Nameste React Js</h1>;
+
+JS engine doesn't understand JSX .
+
+JSX ---> Transpiled before it reaches to JS engine --> by parcel --> parcel give resposibility to a pacakage Babel 
+
+React.createElement() ---> react element ---> JS object --> HTML element ( render browser understand)
+
+JSX --->Babel transpile it to React.createElement() ---> react element ---> JS object --> HTML element ( render browser understand)
+
+4. How to give class to JSX  - camelcase
+const jsxHeading = <h1 className="head">Nameste React Js using JSX</h1>;
+
+5. Multiline JSX -- wrap in ()
+
+const jsxHeading = (<h1 className="head">
+Nameste React Js using JSX
+</h1>);
+
+

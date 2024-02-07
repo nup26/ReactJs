@@ -28,7 +28,7 @@ Steps-
    license:
    It is ok :yes
  -------------------
- after all this pacakge.json file is created in our project
+ after all this package.json file is created in our project
  
  pacakage.json - it is configuration for npm
 
@@ -74,4 +74,6 @@ Q. Sholud we put pacakage.json and pacakage-lock.json file on gitgit ? YES coz i
 4. npm install react - to install react 
 
 5. npm install react-dom or npm i react-dom  - to install react-dom
+
+
  
