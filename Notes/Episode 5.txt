@@ -1,0 +1,47 @@
+1. Both can be used both are same without js and with js -
+import Header from "./components/Header"; // by default react treat it as javascript file only 
+import Header from "./components/Header.js";
+
+2. Two type of export 
+
+default export - we can ony use one default export in a file .
+
+export default componentname ;
+export default RestaurantCard;
+
+named export - 
+use to export mutiple variables or constants 
+add export infront of any variable or constants
+export const CDN_URL ="test"
+
+2. Two type of import
+
+named import 
+import {} from 'path';
+import { CDN_URL } from "../utils/contants";
+
+default import 
+import resList from "../utils/mockdata";
+
+3.React Hooks (normal JS utility function)
+useState() - 
+import { useState } from "react"; - import as named import
+
+
+ const [listofRestaurants, setlistofRestaurents] = useState([])    []- defalt value which is assigned to listofRestaurants variable
+
+setlistofRestaurents ()= function which updates the default value if any operation is done on this function
+
+** whenever a state variable updates react re-render the component
+ 
+
+useEffect()
+
+
+4. Reconliation algorithm (react fiber) - 
+virtual DOM is representation of actual DOM . virtual dom is normal js object
+
+5.Diff Algo - it find the difference btwn updated virtual dom and previous virtual dom and update the actula virtual dom on every render cycle.
+
+6. React is fast due to efficient DOM manupulation coz of virtual dom . It keeps the data layer and UI layer in syn.
+
