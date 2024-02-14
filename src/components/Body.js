@@ -23,7 +23,19 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json);
+    //console.log(json);
+    //  console.log(listofRestaurants);
+    //console.log(filterRestaurants);
+
+    const newarray =
+      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+    console.log(newarray);
+
+    const array2 =
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+    console.log(array2);
 
     //optional chaining
     setlistofRestaurants(
@@ -37,9 +49,9 @@ const Body = () => {
 
   //loading spiner when when was empty
   //conditional rendering
-  // if (listofRestaurants.length === 0) {
-  //   return <Shimmer />;
-  // }
+  if (listofRestaurants.length === 0) {
+    return <Shimmer />;
+  }
 
   //normal js variable
   // let listofRestaurants1 = [
@@ -304,9 +316,7 @@ const Body = () => {
   // ];
 
   //using ternary operater and clubling the condiontal rendering condition with it . We can write it separetly also
-  return listofRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  return (
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -340,7 +350,7 @@ const Body = () => {
               (res) => res.info.avgRating > 4
             ); // console.log(listofRestaurants);
 
-            setlistofRestaurants(filteredRestaurents);
+            setfilterRestaurants(filteredRestaurents);
           }}
         >
           Top Rated Restaurants

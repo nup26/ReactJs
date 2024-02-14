@@ -1,0 +1,94 @@
+1. If there is no dependency array in  useEffect() then UseEffect() will called eveerytime when component is rendered.
+2.If the dependency array is blank then useEffect() is called only on intial render (just once)
+3. If dependcy will have something then useEffect() will be called when that dependcy changes 
+const fetchData = () => {
+  console.log("use effect is called"),[btnNameReact]
+    );
+so whenever btnNameReact changes useEffect() will called.
+
+4. Never create useState() in loops , in any conditions or in any function
+
+____________________________________________________________________________
+
+Routing
+Install npm library called react router dom
+command - npm i react-router-dom
+
+Import below in App.js
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+and add code in App.js- 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+  },
+
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contactus",
+    element: <ContactUs />,
+  },
+]);
+
+
+root.render(<RouterProvider router={appRouter} />);
+
+5. for handling error path add errorElement: <Errorcomponent /> in appRouter
+6. Feature react router dom give it to us access to a important hook for  error - useRouterError()
+import { useRouteError } from "react-router-dom";
+
+const Error = () => {
+  const err = useRouteError();
+  // console.log(err);
+  return (
+    <div>
+      <h1>Oops!!!</h1>
+      <h2>Something went wrong</h2>
+      <h3>
+        {err.status} : {err.statusText} // can access this coz of useRouterError hook
+      </h3>
+    </div>
+  );
+};
+
+7. How to make header intact - create children routes
+About contactus are children of AppLayout
+Outlet will be replaced as the children as the path changes 
+when outlet will be replaced according to path where we are .like / path then header and body , /about then header and about
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+  );
+};
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contactus",
+        element: <ContactUs />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
