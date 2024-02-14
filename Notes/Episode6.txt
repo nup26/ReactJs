@@ -1,0 +1,67 @@
+2 ways how UI and web app fetch the data from bcakend - 
+
+1. load - api call -- render UI
+
+as soon as our page loads we do the api call and wait to get the data after that we will render it to UI 
+
+2. load -->render UI  --> API call -- re render UI ---> will use this approach since it give better UX
+
+as soon as page load . We will render the UI . We will now do the API call and will wait to get the data . As soon as we get the data we 
+will render the UI .
+
+
+2. React Renders UI very fast .
+
+3. useEffect() - it comes from react library and it import as named import like useState().
+It takes two argumnets . one a arrow function (a callback function) and a dependency arrray
+useEffect( ()=>{}, [] ) 
+The callback function for useEffect is called after our component is renders .
+
+
+  useEffect(() => {
+     console.log("use effect called");
+   }, []);
+
+
+  console.log("body rendered");
+  //this is rendered when body is rendered . Before useEffect is called.
+
+4. Fetch() - function given by browser to fetch data from API .
+  this fetch will return a promise . 
+
+5. How to resolve a promise using async , await and then convert data in json.
+
+useEffect(() => { fetchData()}, []);
+
+  const fetchData = async ()=>{
+
+    const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.006405&lng=77.7518467&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+
+    const json= await data.json();
+  }
+
+
+6. CORS error while fetching data from swiggy api . How to resolve cors . Add cros extension to bypass this .
+
+7. Shimmer UI - shwoing a fake page until we get data from api .
+
+8. Conditional rendering - rendering on basis of condtions is called conditional rendering 
+ //conditional rendering
+  if (listofRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+
+
+  //using ternary operater and clubling the condiontal rendering condition with it . We can write it separetly also
+  return listofRestaurants.length === 0 ? <Shimmer /> : ( 
+
+9 . When we use useState then whole component will re-render and this time the state varaible is new state varaible not the previous one
+since in react the value of state varaible is getting changed coz both varaible are different before render and after re-render .Thats why
+state variable work even though we inatlize it as const.
+
+
+10 To make a serachbox works we have to bind the input with the state varaible . and  adding any text in serachox input (on change) 
+it will update it value of state varaible .
+
+11. Whenever a local state varaible update react trigger reconcilation cycle(re-render the component)
+

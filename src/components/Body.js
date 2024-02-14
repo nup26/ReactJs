@@ -1,11 +1,45 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import resList from "../utils/mockdata";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   //state variable - super powerful variable
 
-  const [listofRestaurants, setlistofRestaurents] = useState(resList);
+  const [listofRestaurants, setlistofRestaurants] = useState([]);
+
+  const [filterRestaurants, setfilterRestaurants] = useState([]);
+
+  const [searchText, setsearchText] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.006405&lng=77.7518467&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+
+    console.log(json);
+
+    //optional chaining
+    setlistofRestaurants(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+
+    setfilterRestaurants(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+
+  //loading spiner when when was empty
+  //conditional rendering
+  // if (listofRestaurants.length === 0) {
+  //   return <Shimmer />;
+  // }
 
   //normal js variable
   // let listofRestaurants1 = [
@@ -269,9 +303,36 @@ const Body = () => {
   //   },
   // ];
 
-  return (
+  //using ternary operater and clubling the condiontal rendering condition with it . We can write it separetly also
+  return listofRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setsearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            onClick={() => {
+              //om click of serach button filter the restaurant list and update UI
+
+              const serachFilterRestaurants = listofRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              //list of restaurents will upadte
+              setfilterRestaurants(serachFilterRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
+
         <button
           className="filter-btn"
           onClick={() => {
@@ -279,15 +340,15 @@ const Body = () => {
               (res) => res.info.avgRating > 4
             ); // console.log(listofRestaurants);
 
-            setlistofRestaurents(filteredRestaurents);
+            setlistofRestaurants(filteredRestaurents);
           }}
         >
-          Top Rated Restaurants{" "}
+          Top Rated Restaurants
         </button>
       </div>
 
       <div className="res-container">
-        {listofRestaurants.map((restaurant, index) => (
+        {filterRestaurants.map((restaurant, index) => (
           <RestaurantCard resData={restaurant} key={index} />
         ))}
       </div>
