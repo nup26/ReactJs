@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import resList from "../utils/mockdata";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //state variable - super powerful variable
@@ -27,15 +28,15 @@ const Body = () => {
     //  console.log(listofRestaurants);
     //console.log(filterRestaurants);
 
-    const newarray =
-      json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // const newarray =
+    //   json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-    console.log(newarray);
+    // console.log(newarray);
 
-    const array2 =
-      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    // const array2 =
+    //   json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-    console.log(array2);
+    // console.log(array2);
 
     //optional chaining
     setlistofRestaurants(
@@ -45,6 +46,8 @@ const Body = () => {
     setfilterRestaurants(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    console.log(filterRestaurants);
   };
 
   //loading spiner when when was empty
@@ -359,7 +362,9 @@ const Body = () => {
 
       <div className="res-container">
         {filterRestaurants.map((restaurant, index) => (
-          <RestaurantCard resData={restaurant} key={index} />
+          <Link key={index} to={"/restaurants/" + restaurant.info.id}>
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

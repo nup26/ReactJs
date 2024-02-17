@@ -92,3 +92,18 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
   },
 ]);
+
+8. In react when you want to route to some other page then don't use anchor tag . When we click on any page using anchor tag it refersh whole page.
+You can navigate to other page without reloading the whole page .
+use link component from react router dom  . It works exactly same as anchor tag .
+import { Link } from "react-router-dom";
+In anchor tag we have href in link component we have to for define the path where the page naviagte .
+  <Link to="/about">About Us</Link>
+
+Link changes the component via client side routing.That is why react application call as single page application.
+
+9.Web applications have two types of routings -
+a.Client side routing
+b.Server side routing
+
+10.useParams() hook
