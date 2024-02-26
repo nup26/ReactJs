@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import resList from "../utils/mockdata";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //state variable - super powerful variable
@@ -49,6 +50,17 @@ const Body = () => {
 
     console.log(filterRestaurants);
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  console.log("before", onlineStatus);
+
+  if (onlineStatus === false)
+    return (
+      <h1>Looks like you are offline.Please check your internet connection</h1>
+    );
+
+  console.log("after ", onlineStatus);
 
   //loading spiner when when was empty
   //conditional rendering

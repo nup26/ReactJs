@@ -1,0 +1,29 @@
+App chunking /code spliting/ lazy loading/ dynamic bundling / on demand loading /dynamic import - to break down your app in smallar chunks .
+
+How to create seperate bundle for grocery -
+
+lazy loading -
+when our homepage will load it will not load code for grocery . When we click only then it will load code for grocery .
+
+In app.js we will not load grocery like this - import Grocery from "./components/Grocery";
+
+lazy() - given by react library and will be import as named import . It take a callback function .
+under it import takes the path of the component which we want to load lazy 
+
+const Grocery = lazy(() => import("./components/Grocery"));
+
+--> now in dist folder we have two js file on for whole app expect grocery and other one only for grocery .
+
+-- > to fix the issue after lazy loading use Suspense component which is given by react lib .
+-->Wrap your component in Suspense
+
+   path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading....</h1>}>
+            <Grocery />
+          </Suspense>
+
+here fallaback is given when we clicked on grocery it will take some time to load the code of that component until the code came for
+time being we can show fallaback on the grocery page.
+
+Here lazy loading - to make app to make it fast and performent . and use lazy loading to distribute the bundles into chunks .
