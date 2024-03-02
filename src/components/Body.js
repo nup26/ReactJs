@@ -333,17 +333,18 @@ const Body = () => {
   //using ternary operater and clubling the condiontal rendering condition with it . We can write it separetly also
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex">
+        <div className="search p-2 m-2">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setsearchText(e.target.value);
             }}
           ></input>
           <button
+            className="px-4 py-2 m-4 bg-green-200 rounded-lg"
             onClick={() => {
               //om click of serach button filter the restaurant list and update UI
 
@@ -358,21 +359,23 @@ const Body = () => {
           </button>
         </div>
 
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredRestaurents = listofRestaurants.filter(
-              (res) => res.info.avgRating > 4
-            ); // console.log(listofRestaurants);
+        <div className="p-2 m-2 flex items-center">
+          <button
+            className="px-4 py-2 rounded-lg bg-gray-300"
+            onClick={() => {
+              const filteredRestaurents = listofRestaurants.filter(
+                (res) => res.info.avgRating > 4
+              ); // console.log(listofRestaurants);
 
-            setfilterRestaurants(filteredRestaurents);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+              setfilterRestaurants(filteredRestaurents);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filterRestaurants.map((restaurant, index) => (
           <Link key={index} to={"/restaurants/" + restaurant.info.id}>
             <RestaurantCard resData={restaurant} />

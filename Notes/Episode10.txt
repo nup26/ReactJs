@@ -1,0 +1,24 @@
+Tailwind 
+framwork guide - parcel (coz our project uses parcel)
+postcss- a tool to transforimg css with javascript.Tailwind css uses postcss .
+
+
+1. npm install -D tailwindcss postcss
+npx tailwindcss init    -- >create tailwind config file - config for tailwind
+.postcssrc - congif for postcss
+
+2.Create a .postcssrc file in your project root, and enable the tailwindcss plugin.
+{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}
+
+3.Add the paths to all of your template files in your tailwind.config.js file.
+"./src/**/*.{html,js,ts,jsx,tsx}",
+
+
+Use cltr +spacebar - if tailwind extension not givng suggestions
+
+Tailwind is very light weight
+
