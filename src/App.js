@@ -9,6 +9,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import useRestaurantMenu from "./utils/useRestaurantMenu";
+import RestaurantCategory from "./components/RestauantCategory";
 //import Grocery from "./components/Grocery";
 
 // const StyleCard = {
@@ -51,6 +52,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/resmenu",
         element: <useRestaurantMenu />,
+      },
+      {
+        path: "/rescategory",
+        element: <RestaurantCategory />,
       },
       {
         path: "/grocery",

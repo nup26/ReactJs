@@ -26,4 +26,6 @@ const RestaurantCard = (props) => {
   );
 };
 
+// higher order function
+
 export default RestaurantCard;

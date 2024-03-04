@@ -1,0 +1,7 @@
+higher order components -
+it is a functn which takes a component enhance it and return component
+
+Recat have two layer 
+
+UI layer 
+Data layer
